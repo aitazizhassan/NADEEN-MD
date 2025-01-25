@@ -62,7 +62,7 @@ const {
     connectToWA()
     }
     } else if (connection === 'open') {
-    console.log('🔄 Installing...\nNADEEN-MD connected to whatsapp ✅\n👨🏻‍💻Created By Nadeen Poorna👨🏻‍💻')
+    console.log('NADEEN-MD connected to whatsapp ✅\n👨🏻‍💻Created By Nadeen Poorna👨🏻‍💻')
     const path = require('path');
     fs.readdirSync("./plugins/").forEach((plugin) => {
     if (path.extname(plugin).toLowerCase() == ".js") {
@@ -531,11 +531,7 @@ conn.ev.on('messages.upsert', async (mek) => {
     } catch (err) {
         console.error('Error in message handler:', err);
     }
-});    
-
-//Auto Typing
-if(config.AUTO_TYPING === 'true'){await conn.sendPresenceUpdate('composing', from);}
-        
+});           
 //=====================✓
 if (config.AUTO_VOICE === 'true') {
 const url = 'https://raw.githubusercontent.com//Nadeenpoorna-lk/MAIN-DATA/main/AUTO-VOICE/NADEEN-DATA'
