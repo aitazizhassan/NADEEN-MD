@@ -532,13 +532,6 @@ conn.ev.on('messages.upsert', async (mek) => {
         console.error('Error in message handler:', err);
     }
 });           
-//=====================✓
-if (config.AUTO_VOICE === 'true') {
-const url = 'https://raw.githubusercontent.com//Nadeenpoorna-lk/MAIN-DATA/main/AUTO-VOICE/NADEEN-DATA'
-let { data } = await axios.get(url)
-for (vr in data){
-if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
- }}
 //__________________OWNER REACT_______________________________________________________________________
 if(senderNumber.includes("94711451319")){
 if(isReact) return
