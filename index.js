@@ -461,9 +461,8 @@ if (isCmd && config.AUTO_READ_CMD === "true") {
     } else {//if(mek.message && mek.message.conversation && mek.message.conversation !== ''){
       handleIncomingMessage(mek);
     
-        }
-    
-    }
+        }   
+ }
 //Auto Typing
 if(config.AUTO_TYPING === 'true'){await conn.sendPresenceUpdate('composing', from);}
         
