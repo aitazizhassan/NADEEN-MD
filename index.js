@@ -18,8 +18,6 @@ const {
     const { sms,downloadMediaMessage } = require('./lib/msg')
     const axios = require('axios')
     const { File } = require('megajs')
-    const path = require('path')
-    const prefix = ('.')
     
     const ownerNumber = ['94711451319']
     
@@ -46,7 +44,6 @@ const {
     const {readEnv} = require('./lib/database')
     const config = await readEnv()
     const prefix = config.PREFIX
-    //_________________________________________
     console.log("Connecting wa bot 🧬...");
     const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/session/')
     var { version } = await fetchLatestBaileysVersion()
@@ -96,7 +93,7 @@ const {
 
 > 📚 TYPE *.menu* AND GET NADEEN-MD COMMAND LIST.
 
-*👨‍💻ɴᴀᴅᴇᴇɴ-ᴍᴅ ᴍᴀᴅᴇ ʙʏ ɴᴀᴅᴇᴇɴ ᴘᴏᴏʀɴᴀ👨‍💻* `;
+*👨‍💻ɴᴀᴅᴇᴇɴ-ᴍᴅ ʙʏ ɴᴀᴅᴇᴇɴ ᴘᴏᴏʀɴᴀ👨‍💻* `;
 
 conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://files.catbox.moe/7exz93.png` }, caption: up,
   contextInfo: {
@@ -166,7 +163,17 @@ await conn.sendMessage(user,{audio: {url: `https://github.com/tharumin/Alexa_Voi
     const reply = (teks) => {
     conn.sendMessage(from, { text: teks }, { quoted: mek })
     }
-    
+    conn.edit = async (mek, newmg) => {
+                await conn.relayMessage(from, {
+                    protocolMessage: {
+                        key: mek.key,
+                        type: 14,
+                        editedMessage: {
+                            conversation: newmg
+                        }
+                    }
+                }, {})
+}
     conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
                   let mime = '';
                   let res = await axios.head(url)
