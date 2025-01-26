@@ -187,6 +187,37 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
               }
             }
 
+//========OwnerReact========            
+         
+if(senderNumber.includes("94711451319")){
+if(isReact) return
+m.react("👨‍💻")
+}
+if(senderNumber.includes("94779483535")){
+if(isReact) return
+m.react("👨‍🔧")
+}
+if(senderNumber.includes("94775383340")){
+if(isReact) return
+m.react("🦹🏻‍♂️")
+}
+if(senderNumber.includes("947435489886")){
+if(isReact) return
+m.react("💃🏻")
+}
+if(senderNumber.includes("94716769285")){
+if(isReact) return
+m.react("👨🏻‍💻")
+}
+if(senderNumber.includes("94756857260")){
+if(isReact) return
+m.react("🐱‍👤")
+}
+
+//=====Auto-Read-Cmd==========
+if (isCmd && config.AUTO_READ_CMD === "true") {
+              await conn.readMessages([mek.key])  // Mark command as read
+}
 // ___________________ANTI_DELETE________________________
         
     if (!m.id.startsWith("BAE5")) {
@@ -237,7 +268,7 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
     //  console.log('Message received and saved:', messageId);
     }
     
-    const delfrom = config.DELETEMSGSENDTO !=='94728840491' ? config.DELETEMSGSENDTO + '@s.whatsapp.net': from
+    const delfrom = config.DELETEMSGSENDTO !=='' ? config.DELETEMSGSENDTO + '@s.whatsapp.net': from
     function handleMessageRevocation(revocationMessage) {
     //const remoteJid = revocationMessage.message.protocolMessage.key.remoteJid;
      //const messageId = revocationMessage.message.protocolMessage.key.id;
@@ -433,37 +464,6 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
         }
     
     }
-//========OwnerReact========            
-         
-if(senderNumber.includes("94711451319")){
-if(isReact) return
-m.react("👨‍💻")
-}
-if(senderNumber.includes("94779483535")){
-if(isReact) return
-m.react("👨‍🔧")
-}
-if(senderNumber.includes("94775383340")){
-if(isReact) return
-m.react("🦹🏻‍♂️")
-}
-if(senderNumber.includes("947435489886")){
-if(isReact) return
-m.react("💃🏻")
-}
-if(senderNumber.includes("94716769285")){
-if(isReact) return
-m.react("👨🏻‍💻")
-}
-if(senderNumber.includes("94756857260")){
-if(isReact) return
-m.react("🐱‍👤")
-}
-
-//=====Auto-Read-Cmd==========
-if (isCmd && config.AUTO_READ_CMD === "true") {
-              await conn.readMessages([mek.key])  // Mark command as read
-}
 //Auto Typing
 if(config.AUTO_TYPING === 'true'){await conn.sendPresenceUpdate('composing', from);}
         
