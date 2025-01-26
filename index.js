@@ -41,6 +41,11 @@ const {
     //=============================================
     
     async function connectToWA() {
+    const connectDB = require('./lib/mongodb')
+    connectDB();
+    const {readEnv} = require('./lib/database')
+    const config = await readEnv()
+    const prefix = config.PREFIX
     //_________________________________________
     console.log("Connecting wa bot 🧬...");
     const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/session/')
